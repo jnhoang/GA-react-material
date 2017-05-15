@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Post.jsx'
+import './Post.jsx';
 
 class Comment extends Component {
   render() {
