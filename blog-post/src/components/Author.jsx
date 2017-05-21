@@ -1,13 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Author extends Component {
-  render() {
-    return (
-      <div>
-        <p>{this.props.author}</p>
-      </div>
-    );
-  }
-}
+const Author = (props) => (
+  <div>
+    <p>{props.author}</p>
+  </div>
+);
 
 export default Author;
