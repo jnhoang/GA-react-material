@@ -32,7 +32,6 @@ class MyList extends Component {
     e.preventDefault();
   }
   render() {
-    console.log(React)
     let toDoItems = this.state.toDoList.map( (thing, index) => 
       <ListItem thing={thing} key={index} />
     );
