@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class Movie extends Component {
+class Person extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -8,8 +8,6 @@ class Movie extends Component {
     };
   }
   componentDidMount() {
-    const base = this;
-
     fetch('http://swapi.co/api/people/1/')
       .then( (res) => res.json() )
       .then( (json) => {
@@ -22,17 +20,23 @@ class Movie extends Component {
 
   render() {
     if (this.state.person) {
-      let name = this.state.person.name;
-      return(
+      let person = this.state.person;
+      
+      return (
         <article>
-          {name} is the first person in this API!
+          <h1>Person</h1>
+          <p>Name: {person.name}</p>
+          <p>Birth Year: {person.birth_year}</p>
+          <p>Height: {person.height}cm</p>
+          <p></p>
         </article>
       );
     }
+
     return (
       <div>Loading...</div>
     );
   }
 }
 
-export default Movie;
+export default Person;

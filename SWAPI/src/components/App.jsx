@@ -1,12 +1,15 @@
 import React, {Component} from 'react';
-import Movie from './Movie';
+import {Link} from 'react-router-dom';
+import Routing from './Routing';
 
 class App extends Component {
-
   render() {
     return (
       <div>
-        <Movie />
+        <Routing />
+        <nav>
+
+        </nav>
       </div>
     );
   }
