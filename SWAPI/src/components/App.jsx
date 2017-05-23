@@ -1,16 +1,26 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
-import Routing from './Routing';
+import {
+  BrowserRouter as Router
+, Route
+, Link} from 'react-router-dom';
+
+import Home from './Home';
+import Person from './Person';
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <Routing />
-        <nav>
+        <Router>
+          <div>
+            <nav>
+              <Link to='/'>Home</Link>&nbsp;
+              <Link to='/people'>People</Link> 
+            </nav>
 
-        </nav>
-      </div>
+            <Route exact path="/" component={Home} />
+            <Route path='/people' component={Person} /> 
+          </div>
+        </Router>
     );
   }
 }
