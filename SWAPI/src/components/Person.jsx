@@ -1,14 +1,18 @@
 import React, {Component} from 'react';
+import Result from './Results';
 
 class Person extends Component {
   constructor(props) {
     super(props);
     this.state = {
       person: null
+    , input: ''
     };
   }
-  componentDidMount() {
-    fetch('http://swapi.co/api/people/1/')
+  handleSubmit() {
+    let input = this.state.input;
+
+    fetch('http://swapi.co/api/people/' + input)
       .then( (res) => res.json() )
       .then( (json) => {
         console.log(json);
@@ -17,24 +21,24 @@ class Person extends Component {
       .catch( (err) => console.log('Parsing JSON failed', err) 
     );
   }
-
+  handleFormInput(e) {
+    this.setState({
+      input: e.target.value
+    });
+  }
   render() {
-    if (this.state.person) {
-      let person = this.state.person;
-      
-      return (
-        <article>
-          <h1>Person</h1>
-          <p>Name: {person.name}</p>
-          <p>Birth Year: {person.birth_year}</p>
-          <p>Height: {person.height}cm</p>
-          <p></p>
-        </article>
-      );
-    }
-
     return (
-      <div>Loading...</div>
+      <div>
+        <input 
+          type="number"
+          value={this.state.input}
+          onChange={ (e) => this.handleFormInput(e) }
+        />
+        <button onClick={ (e) => this.handleSubmit() }>
+          Search
+        </button>
+        { this.state.person ? <Result person={this.state.person} /> : null}
+      </div>
     );
   }
 }
