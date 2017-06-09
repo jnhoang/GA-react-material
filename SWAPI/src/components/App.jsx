@@ -10,17 +10,17 @@ import Person from './Person';
 class App extends Component {
   render() {
     return (
-        <Router>
-          <div>
-            <nav>
-              <Link to='/'>Home</Link>&nbsp;
-              <Link to='/people'>People</Link> 
-            </nav>
+      <Router>
+        <div>
+          <nav>
+            <Link to='/'>Home</Link>&nbsp;
+            <Link to='/people'>People</Link> 
+          </nav>
 
-            <Route exact path="/" component={Home} />
-            <Route path='/people' component={Person} /> 
-          </div>
-        </Router>
+          <Route exact path="/" component={Home} />
+          <Route path='/people' component={Person} /> 
+        </div>
+      </Router>
     );
   }
 }

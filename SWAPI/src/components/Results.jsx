@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 class Result extends Component {
   render() {
     let person = this.props.person;
+
     return(
       <article>
         <h1>{person.name}</h1>
